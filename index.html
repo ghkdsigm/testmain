@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" charset="utf-8"
+        src="https://www.itembay.com/resources/js/jquery-1.12.4.min.js?v=20230412103329"></script>
+    <script type="text/javascript" charset="utf-8"
+        src="https://www.itembay.com/resources/js/jquery-migrate-1.4.1.min.js?v=20230412103329"></script>
+    <script type="text/javascript" charset="utf-8"
+        src="https://www.itembay.com/resources/js/Jss/Plugins/jquery-lib-min-web2.js?v=20230412103329"></script>
+
+    <link type="text/css" rel="stylesheet"
+        href="https://www.itembay.com/resources/style/Css3/common.css?v=20230412103329" />
+    <link type="text/css" rel="stylesheet"
+        href="https://www.itembay.com/resources/style/Css3/popup.css?v=20230412103329" />
+    <link type="text/css" rel="stylesheet"
+        href="https://www.itembay.com/resources/style/Css3/layout_v3.0.css?v=20230412103329" />
+    <link rel="stylesheet" type="text/css"
+        href="https://www.itembay.com/resources/style/Css3/main_v3.0.css?v=20230412103329" />
+    <!-- <link type="text/css" rel="stylesheet"
+        href="https://www.itembay.com/resources/style/Css3/idangerous.swiper.css?v=20230412103329" /> -->
+    <link type="text/css" rel="stylesheet"
+        href="https://www.itembay.com/resources/style/Css3/main_ib2.css?v=20230412103329" />
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.css" />
+    <style>    
+        .main_cont .new_box .banner {
+            position: relative;
+            height: 350px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .new_area {
+            width: 1000px;
+            display: flex;
+            margin: 20px auto;
+            justify-content: space-between;
+            align-items: flex-start;
+            align-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .new_area .main_left {
+            width: calc(100% - 340px);
+            overflow: hidden
+        }
+
+        .new_area .main_right {
+            width: 320px;
+            overflow: hidden;
+        }
+
+        .new_area .main_bottom {
+            width: 100%;
+            position: relative;
+            max-height: 300px;
+            overflow: hidden;
+        }
+
+        .wing-area {
+            position: fixed;
+            z-index: 99;
+            left: 50%;
+            width: 120px;
+            height: 500px;
+            margin-left: -800px;
+            top: 220px;
+        }
+
+        .wing a {
+            display: block;
+        }
+
+        .header {
+            width: 100%;
+            height: 300px;
+            background-color: #000;
+            margin-bottom: 15px;
+        }
+
+        .personal_new .new_box ul {
+            padding: 20px 20px 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: calc(100% - 40px);
+        }
+
+        /**메인 개인 영역 **/
+        .personal_new .new_box ul li .thum {
+            width: 135px;
+            height: 135px;
+            box-sizing: border-box;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 1px 2px 15px -8px rgba(0, 0, 0, .2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            background-image: linear-gradient(#ccc, #ccc), linear-gradient(-138deg, #fff, #fff 48%, #fff 100%);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
+
+        .personal_new .new_box ul li a span {
+            text-align: center;
+            display: block;
+        }
+        
+
+        .new_box {
+            padding-bottom: 20px;
+        }
+
+        .personal_new .new_box h4 {
+            padding: 0 0 0 20px
+        }
+
+        .new_box h4 {
+            position: relative;
+            display: block;
+            font-weight: bold;
+            font-family: notoKr, sans-serif;
+            font-size: 18px;
+            line-height: 26px;
+            padding: 0 0 5px;
+            color: #000000;
+            letter-spacing: -1px;
+        }
+
+        .new_box h4 span {
+            font-size: 13px;
+            color: #838383;
+            padding: 0 0 0 5px;
+        }
+
+        .new_box #ul_main_video {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .login_box {
+            padding: 10px;
+            background: #F4F4F4;
+            margin-bottom: 10px;
+        }
+
+        .infozone {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 15px;    
+            align-items: center;
+        }
+
+        .infozone .advice {
+            font-weight:600;
+            letter-spacing: -1px;
+        }
+
+        .main_myinfo .login_box ul {
+            display: flex;
+            justify-content: space-between;
+        }
+        .main_myinfo .login_box ul li {
+            background:#fff;
+            border-radius: 10px;
+            padding:10px;
+        }
+        .main_myinfo .login_box ul li a {
+            text-align: center;
+        }
+        .main_myinfo .login_box ul li a span {
+            font-weight: 600;
+            letter-spacing: -1px;    
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        .main_myinfo .login_box ul li a p {
+            color:red;
+        }
+        .main_myinfo .login_box ul li a p em {
+            font-style:normal;
+        }
+
+        /**공지사항**/     
+        .main_notice .new_box {
+            padding-bottom: 10px;
+        }  
+        .main_notice .new_box .notice_list {
+            display: flex;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 0 15px 0 0;
+        }
+        .main_notice .new_box .notice_list h4 {
+            font-size: 14px;
+            min-width: 80px;
+            text-align: center;    
+            align-items: center;
+            display: flex;
+            justify-content: center;    
+            padding: 0;
+        }
+        .main_notice .new_box .notice_list .swiper-container a {
+            font-size: 14px;
+            text-align: left;
+            width:100%;
+        }
+        .main_notice .new_box .notice_list .notice-line {
+            height: 40px;
+            overflow: hidden;
+        }
+        .main_notice .new_box .notice_list .notice-line .swiper-slide {
+            height: 62px;
+            display: flex;
+            align-items: center;
+        }
+        .main_notice .new_box .notice_list .notice-line .swiper-slide a {
+            color: #000;
+            display: block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .main_notice .new_box .notice_list .notice-line .swiper-slide a:hover {
+            text-decoration: underline;
+        }
+
+        /**자주찾는게임**/
+        .main_frequent_game i.more {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: url('https://www.itembay.com/resources/image/design/main/ib2/btn_main_more.png') center no-repeat;
+            text-indent: -9999px;
+            font-size: 0;
+            vertical-align: top;
+        }
+        .main_frequent_game {}
+        .main_frequent_game .frequentzone {display: flex;justify-content: space-between;align-items: center;padding-bottom:5px;}        
+        .main_frequent_game .inbox {}        
+        .main_frequent_game .inbox .tit {display: flex; justify-content: space-around; background-color: #eee;}
+        .main_frequent_game .inbox .tit h4 {font-size: 14px;padding: 0;}
+        .main_frequent_game .inbox .box {display: flex;justify-content: space-around; padding: 10px;}        
+        .main_frequent_game .inbox .box ul {}
+        .main_frequent_game .inbox .box ul li {text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+
+        /**앱 다운로드**/
+        .main_app_download ul {display: flex; justify-content: space-between;}
+        .main_app_download ul li a {    
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            height: 36px;
+            padding: 0 15px;
+            border: 2px solid #000;
+            border-radius:55px;
+            font-size: 12px;
+            color: #000;
+            justify-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .main_app_download ul li a:before {
+            content: '';
+            width: 24px;
+            height: 19px;
+            margin-right: 2px;
+            background: url('https://www.itembay.com/resources/image/design/common/btn/ico_alarm.png') 0 0 no-repeat;
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //메인 슬라이드
+            var mainSwiper = new Swiper('.mainslider.swiper-container', {
+                slidesPerView: 1,
+                //spaceBetween: 30,
+                autoplay: true,
+                // slidesPerGroup: 3,
+                centeredSlides: true,
+                loop: true,
+                loopedSlides: 1,
+                // loopFillGroupWithBlank: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            //공지사항 롤링
+            var noticeSwiper = new Swiper('.notice-line.swiper-container', {
+                pagination: '.pagination',
+                direction: 'vertical',
+                autoplay: {
+                    delay: 500,
+                    disableOnInteraction: false,
+                },
+                paginationClickable: true,
+                loop: true
+            });
+            //공지사항 롤링:호버시 멈춤
+            $('.notice-line .swiper-slide').hover(function () {
+                noticeSwiper.autoplay.stop();
+            }, function () {
+                noticeSwiper.autoplay.start();
+            });
+
+            //우측 배너 롤링
+            var lightbannerSwiper = new Swiper('.right_banner02.swiper-container', {
+                slidesPerView: 1,
+                //spaceBetween: 30,
+                autoplay: true,
+                // slidesPerGroup: 3,
+                centeredSlides: true,
+                loop: true,
+                loopedSlides: 1,
+                // loopFillGroupWithBlank: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 좌측 광고 배너 -->
+    <div class="wing-area">
+        <a href="#" target="_blank">
+            <img src="https://t1.daumcdn.net/cfile/tistory/99BBE1425C3B12DF03" width="100" alt="배너1">
+        </a>
+        <a href="#" target="_blank">
+            <img src="https://t1.daumcdn.net/cfile/tistory/9957AD475C3B0F3C37" width="100" alt="배너2">
+        </a>
+    </div>
+    <!-- //좌측 광고 배너 -->
+
+
+    <div class="cont_wrap">
+        <!-- 메인 컨텐츠 영역 -->
+        <div class="main_cont">
+            <div class="new_area">
+                <!-- 메인 좌측 영역-->
+                <div class="main_left">
+                    <!-- 메인 배너 -->
+                    <div class="new_box">
+                        <!-- <div class="banner">
+                            <div class="main swiper-container">
+                                <ul class="swiper-wrapper"></ul>
+                            </div>
+                            <div class="indg">
+                                <div class="box">
+                                    <a href="javascript:;" class="btn_prev">이전</a>
+                                    <a href="javascript:;" class="btn_stop">멈춤</a>
+                                    <a href="javascript:;" class="btn_start">재생</a>
+                                    <a href="javascript:;" class="btn_next">다음</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="banner">
+                            <div class="mainslider swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="https://ad.korea.com/itembaytest/itembaybanner/IB1/20230224_OG_3KINGDOMS_BIG.jpg"
+                                            alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="https://ad.korea.com/itembaytest/itembaybanner/IB1/20230224_OG_3KINGDOMS_BIG.jpg"
+                                            alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="https://ad.korea.com/itembaytest/itembaybanner/IB1/20230411_PC_CHARACTER_BIG.jpg"
+                                            alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //메인 배너 -->
+
+                    <!-- 메인 개인영역 거래가이드 노출 -->
+                    <div class="personal_tradeguide">
+                    </div>
+                    <!-- //메인 개인영역 거래가이드 노출 -->
+
+                    <!-- 메인 개인영역 신규회원프로모션 -->
+                    <div class="personal_new">
+                        <div class="new_box">
+                            <h4>거래 혜택<span>작고 소중한 혜택 받아가세요~</span></h4>
+                            <ul>
+                                <li>
+                                    <a href="/intro_corona.jsp" title="새창열림" target="_blank">
+                                        <div class="thum">
+                                            <img src="" alt="">
+                                        </div>
+                                        <span>혹시모를</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/prog/jhRain/life/sub03_04_01_01/infoList.do" title="새창열림" target="_blank">
+                                        <div class="thum">
+                                            <img src="" alt="">
+                                        </div>
+                                        <span>혹시모를</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/prog/sunRise/tour/sub03_05/list.do">
+                                        <div class="thum">
+                                            <img src="" alt="">
+                                        </div>
+                                        <span>혹시모를</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/tour.do">
+                                        <div class="thum">
+                                            <img src="" alt="">
+                                        </div>
+                                        <span>혹시모를</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- //메인 개인영역 신규회원프로모션 -->
+
+                    <!-- 메인 개인영역 재방문 프로모션 -->
+                    <div class="personal_revisit">
+                    </div>
+                    <!-- //메인 개인영역 재방문 프로모션 -->
+
+                    <!-- 메인 개인영역 최근 확인 물품 리스트 -->
+                    <div class="personal_recenttrade">
+                    </div>
+                    <!-- //메인 개인영역 최근 확인 물품 리스트 -->
+
+                    <!-- 메인좌측 배너 -->
+                    <div class="main_l_banner">
+                        <div class="new_box">
+                            <a target="_blank" href="https://nvapi.feeldmc.com:443/ad/p/in/v1_0/clk?slotid=stw_itembaycom_7&amp;adgroupid=adg_itembay_20230328_2&amp;adid=adi_itembay_20230328_2">
+                                <img src="https://ad.korea.com/itembaytest/itembaybanner/IB1/20230327_PC_PRASIA_CL.jpg" alt="null" width="100%" height="100%" border="0" style="padding:0px; margin:0px;">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- //메인좌측 배너 -->
+
+                    <!-- 메인좌측 동영상 -->
+                    <div class="main_l_video">
+                        <div class="new_box">
+                            <h4>한번만 보고 가... 오래 안걸려요...</h4>
+                            <ul id="ul_main_video">
+                                <li id="liManiVideoSeq_69">
+                                    <a href="javascript:;" class="video01 mainVideos" tiorder="1"
+                                        youtubeid="76XvcgG0Db8">
+                                        <img width="210" height="120"
+                                            src="https://img.youtube.com/vi/76XvcgG0Db8/mqdefault.jpg" alt="동영상 컨텐츠1">
+                                        <span><span class="ellip ellip-line">모바일게임 캐릭터 거래편</span></span>
+                                    </a>
+                                </li>
+                                <li id="liManiVideoSeq_2">
+                                    <a href="javascript:;" class="video02 mainVideos" tiorder="2"
+                                        youtubeid="ObIiLgdeMn8">
+                                        <img width="210" height="120"
+                                            src="https://img.youtube.com/vi/ObIiLgdeMn8/mqdefault.jpg" alt="동영상 컨텐츠츠2">
+                                        <span><span class="ellip ellip-line">[아이템베이]레전드 선수</span></span>
+                                    </a>
+                                </li>
+                                <li id="liManiVideoSeq_63">
+                                    <a href="javascript:;" class="video03 mainVideos" tiorder="3"
+                                        youtubeid="2YIq0z_88jQ">
+                                        <img width="210" height="120"
+                                            src="https://img.youtube.com/vi/2YIq0z_88jQ/mqdefault.jpg" alt="동영상 컨텐츠3">
+                                        <span><span class="ellip ellip-line">번개 매칭 서비스 오픈</span></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- //메인좌측 동영상 -->
+                </div>
+                <!-- //메인 좌측 영역-->
+
+                <!-- 메인 우측 영역-->
+                <div class="main_right">
+                    <!-- 로그인 안했을경우 로그인 -->
+                    <div class="main_login">
+                        <div class="login_box">
+                            <form action="" name="frm">
+                                <legend>로그인</legend>
+                                <fieldset>
+                                    <div><input type="text" name="id" class="form-control" placeholder="아이디"></div>
+                                    <div><input type="password" name="password" class="form-control" placeholder="비밀번호"
+                                            autocomplete="off">
+                                    </div>
+                                    <div>
+                                        <button type="button" data-role="login"
+                                            class="btn btn-dark btn-block">로그인</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <div class="form-group">
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-auto">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="saveIdCheck"
+                                                id="saveId">
+                                            <label class="custom-control-label" for="saveId">아이디 저장</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="/login/pw/reset" class="pw-reset">비밀번호 재설정</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="not-yet">
+                                <p>아직 이노톡 회원이 아니신가요?</p>
+                                <a href="/signup" class="btn btn-outline-dark btn-block">회원가입</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //로그인 안했을경우  로그인 -->
+
+                    <!-- 로그인 했을경우 내정보 -->
+                    <div class="main_myinfo">
+                        <div class="login_box">
+                            <div class="infozone">
+                                <span class="advice">ㅇㅇㅇ님, 오늘은 어떤 게임을 찾으세요?</span> <a href="javascript:;">로그아웃</a>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span>판매중인 물품</span>
+                                        <p>999 <em>개</em></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span>구매중인 물품</span>
+                                        <p>999 <em>개</em></p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span>보유 마일리지</span>
+                                        <p>999,999,999 <em>원</em></p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- //로그인 했을경우  내정보 -->
+
+                    <!-- 공지사항 -->
+                    <div class="main_notice">
+                        <div class="new_box">
+                            <div class="notice_list">
+                                <h4>공지사항</h4>
+                                <div class="notice-line swiper-container">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper">
+                                        <!-- Slides -->
+                                        <div class="swiper-slide">
+                                            <a href="javascript:void(0)">안심번호 서비스 일시중단 안내</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href="javascript:void(0)">[점검]핫티비 서비스 정기 점검 안내</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href="javascript:void(0)">아이템베이 시스템점검 4월 6일 안내</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href="javascript:void(0)">아이템베이 시스템점검 3월 31일 안내</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //공지사항 -->
+
+                    <!-- 자주찾는게임 -->
+                    <div class="main_frequent_game">
+                        <div class="new_box">
+                            <div class="frequentzone">
+                                <h4>자주찾는 게임</h4> <a href="javascript:;" class="btn_more"><i class="more">더보기</i></a>
+                            </div>
+                            <div class="inbox">
+                                <div class="tit">
+                                    <h4>팝니다</h4>
+                                    <h4>삽니다</h4>
+                                </div>
+                                <div class="box">
+                                    <ul>
+                                        <li><a href="javascript:;">DK모바일디오리진>서버전</a></li>
+                                        <li><a href="javascript:;">DK모바일디오리진>서버전</a></li>
+                                        <li><a href="javascript:;">DK모바일디오리진>서버전</a></li>
+                                        <li><a href="javascript:;">DK모바일디오리진>서버전</a></li>
+                                        <li><a href="javascript:;">DK모바일디오리진>서버전</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="javascript:;">DK온라인 > 에오스</a></li>
+                                        <li><a href="javascript:;">리니지2 > 오크</a></li>
+                                        <li><a href="javascript:;">DK온라인 > 에오스</a></li>
+                                        <li><a href="javascript:;">리니지2 > 오크</a></li>
+                                        <li><a href="javascript:;">리니지2 > 오크</a></li>
+                                    </ul>
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //자주찾는게임 -->
+
+                    <!-- 메인우측 첫번째 배너 -->
+                    <div class="main_r_banner01">
+                        <div class="new_box">
+                            <a href="javascript:;" target="_blank"><img src="https://www.itembay.com/resources/image/design/main/ib2/main_hotissue2.jpg" alt="hot_issue_01"></a>
+                        </div>
+                    </div>
+                    <!-- //메인우측 첫번째 배너 -->
+
+                    <!-- 메인우측 APP 다운로드 -->
+                    <div class="main_app_download">
+                        <div class="new_box">
+                            <h4>APP 다운로드</h4>
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">
+                                        아이템베이
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        시세앱
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        시세앱
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- //메인우측 APP 다운로드 -->
+
+                    <!-- 메인우측 두번째 배너 -->
+                    <div class="main_r_banner02">
+                        <div class="new_box">
+                            <h4>사전예약으로 남보다 빠른 육성!</h4>
+                            <div class="right_banner02 swiper-container">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Slides -->
+                                    <div class="swiper-slide">
+                                        <a href="javascript:;">
+                                            <img src="https://www.itembay.com/resources/image/design/main/ib2/main_hotissue0.jpg" alt="hot_issue_01">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="javascript:;">
+                                            <img src="https://www.itembay.com/resources/image/design/main/ib2/main_hotissue0.jpg" alt="hot_issue_01">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="javascript:;">
+                                            <img src="https://www.itembay.com/resources/image/design/main/ib2/main_hotissue0.jpg" alt="hot_issue_01">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="javascript:;">
+                                            <img src="https://www.itembay.com/resources/image/design/main/ib2/main_hotissue0.jpg" alt="hot_issue_01">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //메인우측 두번째 배너 -->
+                </div>
+                <!-- //메인 우측 영역 -->
+
+                <!-- 메인 하단 영역-->                
+                <div class="main_bottom">
+                    <a target="_blank" href="https://nvapi.feeldmc.com:443/ad/p/in/v1_0/clk?slotid=stw_itembaycom_7&amp;adgroupid=adg_itembay_20230328_2&amp;adid=adi_itembay_20230328_2">
+                        <img src="https://ad.korea.com/itembaytest/itembaybanner/IB1/20230327_PC_PRASIA_CL.jpg" alt="null" width="100%" height="100%" border="0" style="padding:0px; margin:0px;">
+                    </a>
+                </div>                
+                <!-- //메인 하단 영역-->
+            </div>            
+        </div>
+        <!-- //메인 컨텐츠 영역 -->
+
+        <!--//푸터-->
+        <!--//우측사이드-->
+        <!--//팝업박스-->
+    </div>    
+</body>
+
+</html>
