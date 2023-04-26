@@ -33,7 +33,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.css" />
-    <style>    
+    <style> 
         .main_cont .new_box .banner {
             position: relative;
             height: 350px;
@@ -44,7 +44,8 @@
         .new_area {
             width: 1000px;
             display: flex;
-            margin: 20px auto;
+            /* margin: 20px auto; */
+            margin:0 auto 20px;
             justify-content: space-between;
             align-items: flex-start;
             align-content: flex-start;
@@ -81,6 +82,12 @@
         .wing a {
             display: block;
         }
+
+        /*좌측 배너2*/       
+        .wing_banner .jbMenu {position: absolute;z-index: 99;left: 50%;width: 150px;margin-left: -800px;text-align: center;background-color: #ccc;}
+        .wing_banner a {display: block;}
+        .wing_banner a img {width: 100%;}
+        .wing_banner .jbMenu.jbFixed {position: fixed;top: 20px !important;/* transition: all 1.2s ease; */}
 
         .header {
             width: 100%;
@@ -276,12 +283,14 @@
         }
         .main_frequent_game {}
         .main_frequent_game .frequentzone {display: flex;justify-content: space-between;align-items: center;padding-bottom:5px;}        
-        .main_frequent_game .inbox {}        
+        .main_frequent_game .inbox {box-sizing: border-box;border: 1px solid #eee;}        
         .main_frequent_game .inbox .tit {display: flex; justify-content: space-around; background-color: #eee;}
         .main_frequent_game .inbox .tit h4 {font-size: 14px;padding: 0;}
         .main_frequent_game .inbox .box {display: flex;justify-content: space-around; padding: 10px;}        
-        .main_frequent_game .inbox .box ul {}
-        .main_frequent_game .inbox .box ul li {text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+        .main_frequent_game .inbox .box ul {flex: 1;overflow:hidden;}
+        .main_frequent_game .inbox .box ul:last-child {margin-left:15px;}
+        .main_frequent_game .inbox .box ul li {list-style: inside;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+        .main_frequent_game .inbox .box ul li a:hover {text-decoration: underline;}
 
         /**앱 다운로드**/
         .main_app_download ul {display: flex; justify-content: space-between;}
@@ -313,6 +322,24 @@
     </style>
     <script type="text/javascript">
         $(document).ready(function(){
+            //좌즉 배너
+            var headerheight = $('.header').height(); //헤더 높이값        
+            $( '.jbMenu' ).offset({top: headerheight + 15}) //배너 높이값 top값 할당
+            
+            if($( '.jbMenu' ).offset().top > 0){
+                var jbOffset = $( '.jbMenu' ).offset() 
+                $( window ).scroll( function() {
+                    if ( $( document ).scrollTop() > jbOffset.top ) {
+                        $( '.jbMenu' ).addClass( 'jbFixed' );
+                    }
+                    else {
+                        $( '.jbMenu' ).removeClass( 'jbFixed' );
+                    }
+                });
+            }
+            
+            
+
             //메인 슬라이드
             var mainSwiper = new Swiper('.mainslider.swiper-container', {
                 slidesPerView: 1,
@@ -337,6 +364,7 @@
             var noticeSwiper = new Swiper('.notice-line.swiper-container', {
                 pagination: '.pagination',
                 direction: 'vertical',
+                //effect: 'fade', 
                 autoplay: {
                     delay: 500,
                     disableOnInteraction: false,
@@ -376,18 +404,31 @@
 
 <body>
     <!-- 좌측 광고 배너 -->
-    <div class="wing-area">
+    <!-- <div class="wing-area">
         <a href="#" target="_blank">
             <img src="https://t1.daumcdn.net/cfile/tistory/99BBE1425C3B12DF03" width="100" alt="배너1">
         </a>
         <a href="#" target="_blank">
             <img src="https://t1.daumcdn.net/cfile/tistory/9957AD475C3B0F3C37" width="100" alt="배너2">
         </a>
-    </div>
+    </div> -->
     <!-- //좌측 광고 배너 -->
+
+    <!-- 좌측 광고배너2 -->
+    <div class="wing_banner">
+        <div class="jbMenu" target="_blank">
+        <a href="javascript:;">
+            <img src="./bn.png" alt="">
+        </a>
+        </div>
+    </div>
+    <!-- //좌측 광고배너2 -->
 
 
     <div class="cont_wrap">
+        <div class="header">
+            헤더영역
+        </div>
         <!-- 메인 컨텐츠 영역 -->
         <div class="main_cont">
             <div class="new_area">
@@ -654,7 +695,7 @@
                                         <li><a href="javascript:;">리니지2 > 오크</a></li>
                                         <li><a href="javascript:;">DK온라인 > 에오스</a></li>
                                         <li><a href="javascript:;">리니지2 > 오크</a></li>
-                                        <li><a href="javascript:;">리니지2 > 오크</a></li>
+                                        <li><a href="javascript:;">리니지2 > 오크 > 이오스</a></li>
                                     </ul>
                                 </div>                               
                             </div>
@@ -724,6 +765,7 @@
                                         </a>
                                     </div>
                                 </div>
+                                <div class="swiper-pagination"></div>
                             </div>
                         </div>
                     </div>

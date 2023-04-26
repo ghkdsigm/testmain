@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>모바일 메뉴</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css" />
+    <!-- swiper.js 라이브러리 CSS 파일 추가 -->
+    <style>
+        /* 메뉴 슬라이더를 감싸는 컨테이너의 스타일 */
+        .swiper-container {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* 메뉴 리스트의 스타일 */
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            height: 60px;
+            background-color: #f8f8f8;
+            border: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 메뉴 슬라이더를 감싸는 컨테이너 -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- 메뉴 리스트 -->
+            <div class="swiper-slide">메뉴 1</div>
+            <div class="swiper-slide">메뉴 2</div>
+            <div class="swiper-slide">메뉴 3</div>
+            <div class="swiper-slide">메뉴 4</div>
+            <div class="swiper-slide">메뉴 5</div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+    <!-- swiper.js 라이브러리 JS 파일 추가 -->
+    <script>
+        // Swiper 객체 생성 및 옵션 설정
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 'auto', // 슬라이드 개수를 자동으로 계산
+            spaceBetween: 10, // 슬라이드 사이의 간격
+            freeMode: true, // 슬라이드의 자유 이동을 허용
+            scrollbar: {
+                el: '.swiper-scrollbar', // 스크롤바 요소 지정
+            },
+        });
+    </script>
+</body>
+</html>
