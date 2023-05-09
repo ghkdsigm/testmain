@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1, user-scalable=no,viewport-fit=cover" />
+		<meta name="keywords" content="R2 던전앤파이터 던파 리니지 리니지2 메이플 메이플스토리 바람의나라 블레이드앤소울 서든어택 아이온 아이탬베이 아이템 아이템배이 아이템베이 아키에이지 암드히어로즈 와우 커츠 피쉬아일랜드" />
+		<meta name="abstract" content="R2 던전앤파이터 던파 리니지 리니지2 메이플 메이플스토리 바람의나라 블레이드앤소울 서든어택 아이온 아이탬베이 아이템 아이템배이 아이템베이 아키에이지 암드히어로즈 와우 커츠 피쉬아일랜드" />
+		<meta name="description" content="빠르고 안전한 아이템거래 No.1 아이템베이." />
+		<meta name="classification" content="아이템거래" />
+		<link rel="shortcut icon" href="https://www.itembay.com/resources/images/main/favicon.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="https://www.itembay.com/resources/images/main/favicon.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="https://www.itembay.com/resources/images/main/favicon.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="https://www.itembay.com/resources/images/main/favicon.png" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>[01메인]{01메인} 메인 안내 팝업 모음</title>
+		<link rel="stylesheet" href="https://www.itembay.com/resources/css/common.css" />
+		<!-- 공통 CSS-->
+		<link rel="stylesheet" href="https://www.itembay.com/resources/css/main.css" />
+		<!-- 메인 CSS-->
+		<link rel="stylesheet" href="https://www.itembay.com/resources/css/swiper.min.css" />
+		<!-- 슬라이드 CSS-->
+		<script src="https://www.itembay.com/resources/js/jquery.min.js"></script>
+		<!--제이쿼리-->
+		<script src="https://www.itembay.com/resources/js/ib.publish.js"></script>
+		<!--퍼블js-->
+		<script src="https://www.itembay.com/resources/js/plugins/swiper.min.js"></script>
+		<!--슬라이드-->
+	</head>
+
+	<body>
+		<style>
+			html {
+				background-color: #f3f3f3;
+			}
+
+			.sample_wrap .pop_box {
+				animation-duration: 0s;
+				animation-delay: 0s;
+			}
+
+			.sample_tab {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				display: flex;
+				z-index: 9999;
+				padding: 10px 0;
+				overflow-x: auto;
+			}
+
+			.sample_tab > li {
+				padding: 4px 14px;
+				flex: 1 0 auto;
+				background-color: #fff;
+				border: 1px solid #eee;
+			}
+
+			.sample_tab > li.on {
+				background-color: #8653ff;
+				border-color: #8653ff;
+				color: #fff;
+			}
+
+			.sample_tab > li:last-child {
+				margin-right: 20px;
+			}
+
+			.sample_tab > li + li {
+				margin-left: 10px;
+			}
+		</style>
+		<div id="wrap">
+			<!-- 마크업 확인용 탭메뉴 -->
+			<ul class="sample_tab">
+				<li class="btn_open_pop" data-pop="pop_favoite">관심게임설정</li>
+				<li class="btn_open_pop" data-pop="pop_powerzone">파워존 알림</li>
+				<li class="btn_open_pop" data-pop="sample3">파워존 만료</li>
+				<li class="btn_open_pop" data-pop="sample5">쿠폰안내(생일)</li>
+				<li class="btn_open_pop" data-pop="sample6">쿠폰안내(첫거래)</li>
+				<li class="btn_open_pop" data-pop="sample7">쿠폰안내(첫거래 발급)</li>
+				<li class="btn_open_pop" data-pop="sample8">판매자 정보</li>
+				<li class="btn_open_pop" data-pop="sample9">구매자 정보</li>
+			</ul>
+			<div id="container"></div>
+			<!-- 팝업 적용 위치 -->
+			<!-- [Dev] sample_wrap은 스크립트를 위해 씌운 부분입니다.
+            실제 적용시에는 sample_wrap으로 감쌀 필요가 없습니다. -->
+			<div class="sample_wrap">
+				<!-- 관심게임 설정 팝업 -->
+				<div class="pop_wrap pop_favoite">
+					<div class="dimmed"></div>
+					<section class="pop_box">
+						<div class="pop_inner">
+							<header class="pop_header ico_star">
+								<h3 class="title_pop">관심게임을 설정해보세요.<br />다양한 아이템이 기다리고 있습니다.</h3>
+							</header>
+							<section class="pop_container">
+								<div class="search_box">
+									<a href="javascript:;" class="btn_open_pop" data-pop="pop_search"></a>
+									<button type="button" class="btn_search">
+										<span class="blind">검색</span>
+									</button>
+									<label for="search_form" class="search_form_wrap">
+										<input type="text" id="search_form" class="form_search" placeholder="게임명을 입력해주세요." />
+									</label>
+								</div>
+							</section>
+							<footer class="pop_footer">
+								<div class="btn_wrap">
+									<button type="button" class="btn on">관심게임 설정</button>
+								</div>
+								<button type="button" class="btn_pop_sub">그냥 둘러보기</button>
+							</footer>
+							<button type="button" class="btn_close_pop">
+								<span class="blind">팝업닫기</span>
+							</button>
+						</div>
+					</section>
+				</div>
+
+				<!-- 파워존 알림 팝업 -->
+				<div class="pop_wrap pop_powerzone">
+					<div class="dimmed"></div>
+					<section class="pop_box">
+						<div class="pop_inner">
+							<header class="pop_header ico_bell">
+								<p class="title_sub_top">
+									<span>리니지</span>
+									<span class="arr_right">가드리아</span>
+								</p>
+								<h3 class="title_pop">
+									<span class="color_soft_blue">파워존의 이용시간이 <b>12</b>시간 남았습니다.</span>
+								</h3>
+							</header>
+							<section class="pop_container">
+								<p class="txt_con">다른 물품의 파워존 잔여시간도 확인해보세요.</p>
+							</section>
+							<footer class="pop_footer">
+								<div class="btn_wrap">
+									<button type="button" class="btn on">물품수정</button>
+								</div>
+								<button type="button" class="btn_pop_sub">나중에 하기</button>
+							</footer>
+							<button type="button" class="btn_close_pop">
+								<span class="blind">팝업닫기</span>
+							</button>
+						</div>
+					</section>
+				</div>
+
+				<!-- 파워존 만료안내 팝업 -->
+				<div class="pop_wrap sample3">
+					<div class="dimmed"></div>
+					<section class="pop_box">
+						<div class="pop_inner">
+							<header class="pop_header ico_bell">
+								<p class="title_sub_top">
+									<span>리니지</span>
+									<span class="arr_right">가드리아</span>
+								</p>
+								<h3 class="title_pop"><span class="color_soft_blue">파워존의 이용시간이 만료되었습니다.</span></h3>
+							</header>
+							<footer class="pop_footer">
+								<div class="btn_wrap">
+									<button type="button" class="btn on">상세보기</button>
+								</div>
+							</footer>
+							<button type="button" class="btn_close_pop">
+								<span class="blind">팝업닫기</span>
+							</button>
+						</div>
+					</section>
+				</div>
+
+				<!-- 쿠폰안내(생일) 팝업 -->
+				<div class="pop_wrap sample5">
+					<div class="dimmed"></div>
+					<section class="pop_box">
+						<div class="pop_inner">
+							<header class="pop_header ico_cake">
+								<h3 class="title_pop">회원님의 생일(7월2일)을<br />진심으로 축하드립니다.</h3>
+							</header>
+							<section class="pop_container">
+								<p class="txt_con">아이템베이가 준비한 생일쿠폰 받아가세요.</p>
+							</section>
+							<footer class="pop_footer">
+								<div class="btn_wrap">
+									<button type="button" class="btn on">쿠폰확인</button>
+								</div>
+								<button type="button" class="btn_pop_sub">나중에 하기</button>
+							</footer>
+							<button type="button" class="btn_close_pop">
+								<span class="blind">팝업닫기</span>
+							</button>
+						</div>
+					</section>
+				</div>
+
+				<!-- 쿠폰안내(첫거래) 팝업 -->
+				<div class="pop_wrap sample6">
+					<div class="dimmed"></div>
+					<section class="pop_box">
+						<div class="pop_inner">
+							<header class="pop_header ico_gift">
+								<h3 class="title_pop">홍길동님의<br />첫 거래가 완료되었습니다.</h3>
+							</header>
+							<section class="pop_container">
+								<p class="txt_con">아이템베이에서 드리는 할인쿠폰 3,000원 받아가세요!</p>
+							</section>
+							<footer class="pop_footer">
+								<div class="btn_wrap">
+									<button type="button" class="btn on">쿠폰받기</button>
+								</div>
+								<button type="button" class="btn_pop_sub">나중에 하기</button>
+							</footer>
+							<button type="button" class="btn_close_pop">
+								<span class="blind">팝업닫기</span>
+							</button>
+						</div>
+					</section>
+				</div>
+
+				<!-- 쿠폰안내(첫거래 발급) 팝업 -->
+				<div class="pop_wrap sample7">
+					<div class="dimmed"></div>
+					<section class="pop_box">
+						<div class="pop_inner">
+							<header class="pop_header ico_gift">
+								<h3 class="title_pop">첫거래 감사 쿠폰이 발급 되었습니다.</h3>
+							</header>
+							<section class="pop_container">
+								<p class="txt_con">[마이페이지] → [혜택/서비스] 메뉴에서 확인 가능합니다.</p>
+							</section>
+							<footer class="pop_footer">
+								<div class="btn_wrap">
+									<button type="button" class="btn on">쿠폰 확인</button>
+								</div>
+							</footer>
+							<button type="button" class="btn_close_pop">
+								<span class="blind">팝업닫기</span>
+							</button>
+						</div>
+					</section>
+				</div>
+
+				<!-- 판매자 정보 팝업 -->
+				<div class="pop_wrap sample8">
+					<div class="dimmed"></div>
+					<section class="pop_box">
+						<h1 class="blind">팝업</h1>
+						<div class="pop_inner">
+							<header class="pop_header ico_bell">
+								<h2 class="blind">팝업 제목</h2>
+								<h3 class="title_pop">등록하신 물품이 결제완료 되었습니다.</h3>
+							</header>
+							<section class="pop_container list_item">
+								<h2 class="blind">팝업 본문내용</h2>
+								<p class="txt_con">대기중인 물품전달건이 23건 있습니다.<br />마이 페이지에서 확인해보세요.</p>
+								<div class="box_text_scroll type_auto" style="margin-top: 20px">
+									<div class="box_item_info">
+										<strong class="title_state check">구매자 결제 완료</strong>
+										<!-- 게임정보 -->
+										<span class="box_list_step">
+											<b class="blind">게임정보</b>
+											<div class="item_step">
+												<div class="item_inner">
+													<ul class="list_step_info">
+														<li>
+															<span title="게임명">리니지</span>
+															<span tutle="서버명">니가가라 하와이서버</span>
+														</li>
+														<li>
+															<span title="물품명">게임머니</span>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</span>
+										<!-- [Dev] 굵은펜 : bold, 파란펜 : blue, 굵은파란펜 : bold_blue -->
+										<p class="tit_item">200만 아데나 급처! 오후 1시~10시 까지 거래 가능! 연락을 하려면 하고 안하려면 그래도 하고!!</p>
+										<div class="info_price_wrap row">
+											<p class="main_info">504,150만</p>
+											<div class="box_price">
+												<p class="price"><span>63,900</span>원</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+
+							<footer class="pop_footer">
+								<div class="btn_wrap">
+									<button type="button" class="btn on">베이톡</button>
+									<button type="button" class="btn on">물품전달</button>
+								</div>
+							</footer>
+
+							<div class="pop_option_top">
+								<div class="form_check">
+									<input type="checkbox" class="check_form purple" id="chk_day" />
+									<label for="chk_day" class="text_check">오늘 하루 보지 않음</label>
+								</div>
+							</div>
+							<button type="button" class="btn_close_pop">
+								<span class="blind">팝업닫기</span>
+							</button>
+						</div>
+					</section>
+				</div>
+
+				<!-- 구매자 정보 팝업 -->
+				<div class="pop_wrap sample9">
+					<div class="dimmed"></div>
+					<section class="pop_box">
+						<h1 class="blind">팝업</h1>
+						<div class="pop_inner">
+							<header class="pop_header ico_bell">
+								<h2 class="blind">팝업 제목</h2>
+								<h3 class="title_pop">구매하신 물품이 전달 되었습니다.</h3>
+							</header>
+							<section class="pop_container list_item">
+								<h2 class="blind">팝업 본문내용</h2>
+								<p class="txt_con">대기중인 물품전달건이 23건 있습니다.<br />마이 페이지에서 확인해보세요.</p>
+								<div class="box_text_scroll type_auto" style="margin-top: 20px">
+									<div class="box_item_info">
+										<strong class="title_state play">구매확정 대기</strong>
+										<!-- 게임정보 -->
+										<span class="box_list_step">
+											<b class="blind">게임정보</b>
+											<div class="item_step">
+												<div class="item_inner">
+													<ul class="list_step_info">
+														<li>
+															<span title="게임명">리니지</span>
+															<span tutle="서버명">니가가라 하와이서버</span>
+														</li>
+														<li>
+															<span title="물품명">게임머니</span>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</span>
+										<!-- [Dev] 굵은펜 : bold, 파란펜 : blue, 굵은파란펜 : bold_blue -->
+										<p class="tit_item">200만 아데나 급처! 오후 1시~10시 까지 거래 가능! 연락을 하려면 하고 안하려면 그래도 하고!!</p>
+										<div class="info_price_wrap row">
+											<p class="main_info">504,150만</p>
+											<div class="box_price">
+												<p class="price"><span>63,900</span>원</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+
+							<footer class="pop_footer">
+								<div class="btn_wrap">
+									<button type="button" class="btn on">베이톡</button>
+									<button type="button" class="btn on">물품전달</button>
+								</div>
+							</footer>
+
+							<div class="pop_option_top">
+								<div class="form_check">
+									<input type="checkbox" class="check_form purple" id="chk_day" />
+									<label for="chk_day" class="text_check">오늘 하루 보지 않음</label>
+								</div>
+							</div>
+							<button type="button" class="btn_close_pop">
+								<span class="blind">팝업닫기</span>
+							</button>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+		<!-- [Dev] 마크업 확인용 스크립트, 적용 X -->
+		<script>
+			$(document).ready(function () {
+				$(".sample_tab > li").click(function () {
+					const $this = $(this),
+						$index = $this.index();
+
+					$this.addClass("on").siblings().removeClass("on");
+					$(".sample_wrap").find(".pop_wrap").eq($index).css("display", "block").siblings().removeAttr("style");
+				});
+			});
+		</script>
+	</body>
+</html>
