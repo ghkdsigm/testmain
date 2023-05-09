@@ -54,122 +54,491 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.css" />
     <style> 
-    /*신규 메인 공통*/
-    .header { width: 100%; height: 280px; background-color: #000; margin-bottom: 15px; } 
+        .main_cont .new_box .banner {
+            position: relative;
+            height: 350px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
 
-    .main_cont .new_box .banner { position: relative; height: 350px; margin: 0 auto; overflow: hidden; } 
-    .main_cont .new_area { width: 1000px; display: flex; margin:0 auto 20px; justify-content: space-between; align-items: flex-start; align-content: flex-start; flex-wrap: wrap; } 
-    .main_cont .new_area .main_left { width: calc(100% - 340px); overflow: hidden}
-    .main_cont .new_area .main_right { width: 320px; overflow: hidden; } 
-    .main_cont .new_area .main_bottom { width: 100%; position: relative; max-height: 300px; overflow: hidden; } 
-    .main_cont .new_box { padding-bottom: 20px; }
-    .main_cont .new_box h4 { position: relative; display: block; font-weight: bold; font-family: notoKr, sans-serif; font-size: 18px; line-height: 26px; padding: 0 0 5px; color: #000000; letter-spacing: -1px; } 
-    .main_cont .new_box h4 span { font-size: 13px; color: #838383; padding: 0 0 0 5px; } 
+        .new_area {
+            width: 1000px;
+            display: flex;
+            margin:0 auto 20px;
+            justify-content: space-between;
+            align-items: flex-start;
+            align-content: flex-start;
+            flex-wrap: wrap;
+        }
 
-    .swiper-container { width: 100%; height: 100%; } 
-    .swiper-slide { text-align: center; font-size: 18px; background: #fff; /* Center slide text vertically */
-    display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; } 
-    
-    
-    /*좌측 배너2*/ 
-    .wing-area { position: fixed; z-index: 99; left: 50%; width: 120px; height: 500px; margin-left: -800px; top: 220px; } 
-    .wing a { display: block; } 
+        .new_area .main_left {
+            width: calc(100% - 340px);
+            overflow: hidden
+        }
 
-    .wing_banner .jbMenu { position: absolute; z-index: 99; left: 50%; width: 150px; margin-left: -800px; text-align: center; background-color: #ccc; } 
-    .wing_banner a { display: block; } 
-    .wing_banner a img { width: 100%; } 
-    .wing_banner .jbMenu.jbFixed { position: fixed; top: 20px !important; /* transition: all 1.2s ease; */ } 
+        .new_area .main_right {
+            width: 320px;
+            overflow: hidden;
+        }
 
-    
-    /**메인 개인 영역 **/
-    .main_cont .personal_new .new_box .personal_promotion { padding: 20px 20px 0 20px; display: flex; align-items: center; justify-content: space-between; width: calc(100% - 40px); } 
-    .main_cont .personal_new .new_box .personal_promotion li .thum { width: 135px; height: 135px; box-sizing: border-box; position: relative; margin: 0 auto; box-shadow: 1px 2px 15px -8px rgba(0, 0, 0, .2); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 1px solid transparent; background-image: linear-gradient(#ccc, #ccc), linear-gradient(-138deg, #fff, #fff 48%, #fff 100%); background-origin: border-box; background-clip: content-box, border-box; } 
-    .main_cont .personal_new .new_box .personal_promotion li a span { text-align: center; display: block; } 
-    .main_cont .personal_new .new_box h4 { padding: 0 0 0 20px}   
-    
-    .main_cont .login_box { padding: 10px; background: #F4F4F4; margin-bottom: 10px; } 
-    .main_cont .infozone { display: flex; justify-content: space-between; padding-bottom: 15px; align-items: center; } 
-    .main_cont .infozone .advice { font-weight:600; letter-spacing: -1px; } 
+        .new_area .main_bottom {
+            width: 100%;
+            position: relative;
+            max-height: 300px;
+            overflow: hidden;
+        }
 
-    .main_cont .main_myinfo .login_box ul { display: flex; justify-content: space-between; } 
-    .main_cont .main_myinfo .login_box ul li { background:#fff; border-radius: 10px; padding:10px; } 
-    .main_cont .main_myinfo .login_box ul li a { text-align: center; } 
-    .main_cont .main_myinfo .login_box ul li a span { font-weight: 600; letter-spacing: -1px; padding-bottom: 5px; display: inline-block; } 
-    .main_cont .main_myinfo .login_box ul li a p { color:red; } 
-    .main_cont .main_myinfo .login_box ul li a p em { font-style:normal; } 
+        .wing-area {
+            position: fixed;
+            z-index: 99;
+            left: 50%;
+            width: 120px;
+            height: 500px;
+            margin-left: -800px;
+            top: 220px;
+        }
 
-    /**비디오**/
-    .main_cont .new_box #ul_main_video { display: flex; align-items: center; justify-content: space-between; } 
+        .wing a {
+            display: block;
+        }
 
-    /**공지사항**/ 
-    .main_cont .main_notice .new_box { padding-bottom: 10px; } 
-    .main_cont .main_notice .new_box .notice_list { display: flex; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 0 15px 0 0; } 
-    .main_cont .main_notice .new_box .notice_list h4 { font-size: 14px; min-width: 80px; text-align: center; align-items: center; display: flex; justify-content: center; padding: 0; } 
-    .main_cont .main_notice .new_box .notice_list .swiper-container a { font-size: 14px; text-align: left; width:100%; } 
-    .main_cont .main_notice .new_box .notice_list .notice-line { height: 40px; overflow: hidden; } 
-    .main_cont .main_notice .new_box .notice_list .notice-line .swiper-slide { height: 62px; display: flex; align-items: center; } 
-    .main_cont .main_notice .new_box .notice_list .notice-line .swiper-slide a { color: #000; display: block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; } 
-    .main_cont .main_notice .new_box .notice_list .notice-line .swiper-slide a:hover { text-decoration: underline; } 
+        /*좌측 배너2*/       
+        .wing_banner .jbMenu {position: absolute;z-index: 99;left: 50%;width: 150px;margin-left: -800px;text-align: center;background-color: #ccc;}
+        .wing_banner a {display: block;}
+        .wing_banner a img {width: 100%;}
+        .wing_banner .jbMenu.jbFixed {position: fixed;top: 20px !important;/* transition: all 1.2s ease; */}
 
-    /**자주찾는게임**/
-    .main_cont .main_frequent_game i.more { display: inline-block; width: 12px; height: 12px; background: url('https://www.itembay.com/resources/image/design/main/ib2/btn_main_more.png') center no-repeat; text-indent: -9999px; font-size: 0; vertical-align: top; } 
-    .main_cont .main_frequent_game {} 
-    .main_cont .main_frequent_game .frequentzone { display: flex; justify-content: space-between; align-items: center; padding-bottom:5px; } 
-    .main_cont .main_frequent_game .inbox { box-sizing: border-box; border: 1px solid #eee; } 
-    .main_cont .main_frequent_game .inbox .tit { display: flex; justify-content: space-around; background-color: #eee; } 
-    .main_cont .main_frequent_game .inbox .tit h4 { font-size: 14px; padding: 0; } 
-    .main_cont .main_frequent_game .inbox .box { display: flex; justify-content: space-around; padding: 10px; } 
-    .main_cont .main_frequent_game .inbox .box ul { flex: 1; overflow:hidden; } 
-    .main_cont .main_frequent_game .inbox .box ul:last-child { margin-left:15px; } 
-    .main_cont .main_frequent_game .inbox .box ul li { list-style: inside; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; } 
-    .main_cont .main_frequent_game .inbox .box ul li a:hover { text-decoration: underline; } 
+        .header {
+            width: 100%;
+            height: 280px;
+            background-color: #000;
+            margin-bottom: 15px;
+        }
+        
 
-    /**앱 다운로드**/
-    .main_cont .main_app_download ul { display: flex; justify-content: space-between; padding-bottom:10px; border-bottom:1px solid #ccc; } 
-    .main_cont .main_app_download ul li a { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; height: 36px; padding: 0 15px; border: 2px solid #000; border-radius:55px; font-size: 12px; color: #000; justify-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-sizing: border-box; box-sizing: border-box; } 
-    .main_cont .main_app_download ul li a:before { content: ''; width: 24px; height: 19px; margin-right: 2px; background: url('https://www.itembay.com/resources/image/design/common/btn/ico_alarm.png') 0 0 no-repeat; } 
+        /**메인 개인 영역 **/
+        .personal_new .new_box .personal_promotion {
+            padding: 20px 20px 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: calc(100% - 40px);
+        }
+        .personal_new .new_box .personal_promotion li .thum {
+            width: 135px;
+            height: 135px;
+            box-sizing: border-box;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 1px 2px 15px -8px rgba(0, 0, 0, .2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            background-image: linear-gradient(#ccc, #ccc), linear-gradient(-138deg, #fff, #fff 48%, #fff 100%);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
 
-    /* 개인영역 탭 */
-    .main_cont .personal_revisit .new_box h4 { padding: 0 0 0 20px}
-    .main_cont .rtm_trade { padding: 20px 20px 0 20px; width: calc(100% - 40px); } 
-    .main_cont .rtm_trade .tab { padding-left: 1px}
-    .main_cont .rtm_trade .tab:after { content: ""; display: block; clear: both}
-    .main_cont .rtm_trade .tab > li { float: left; border: 1px solid #eaeef7; margin-left: -1px; border-bottom: 0}
-    .main_cont .rtm_trade .tab > li a { position: relative; display: block; font-weight: normal; font-family: notoKr, sans-serif; font-size: 14px; line-height: 19px; height: 19px; padding: 10px 0; color: #7e86a8; background: #fff; width: 198px; text-align: center}
-    .main_cont .rtm_trade .tab > li a.on { color: #635bca; background-color: #fbfbff; padding-bottom: 11px; margin-bottom: -1px}
-    .main_cont .rtm_trade .tab > li a span { display: inline-block; position: relative}
-    .main_cont .rtm_trade .tab_cont { display: none; overflow: hidden; background-color: #fbfbff; border: 1px solid #eaeef7; padding: 21px 19px 19px}
-    .main_cont .rtm_trade .tab_cont.show { display: block}
-    .main_cont .rtm_trade .tab_cont table { width: 100%; font-family: notoKr, sans-serif; font-size: 12px; line-height: 18px; border: 1px solid #eaeef7}
-    .main_cont .rtm_trade .tab_cont table th { background-color: #f9f9f9; color: #8e919e; font-weight: normal; text-align: center; padding: 5px; height: 25px; border-left: 1px solid #fff}
-    .main_cont .rtm_trade .tab_cont table th:first-child { border: 0}
-    .main_cont .rtm_trade .tab_cont table td { border-bottom: 1px solid #eaeef7; font-size: 12px; line-height: 28px; padding: 5px 5px; height: 28px; color: #616781; max-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background-color: #fff}
-    .main_cont .rtm_trade .tab_cont table td a { color: #616781}
-    .main_cont .rtm_trade .tab_cont table td a:hover { text-decoration: underline}
-    .main_cont .rtm_trade .tab_cont table td.type_crs { text-align: center}
-    .main_cont .rtm_trade .tab_cont table td.price { text-align: right; color: #f2316a; padding-right: 20px}
+        .personal_new .new_box .personal_promotion li a span {
+            text-align: center;
+            display: block;
+        }
+        
 
-    /* 개인영역 차트 */
-    .main_cont .personal_recenttrade .new_box h4 { padding: 0 0 0 20px}
-    .main_cont .personal_chart { display: flex; align-items: center; justify-content: flex-start; padding: 20px 20px 0 20px; width: calc(100% - 40px); } 
-    .main_cont .personal_chart .tit { flex-direction: column; padding: 0 20px; width: 100px; display: flex; justify-content: center; align-items: center; } 
-    .main_cont .personal_chart .tit img { display: block; max-width: 50px; } 
-    .main_cont .personal_chart .tit span { display: block; } 
+        .new_box {
+            padding-bottom: 20px;
+        }
 
-    .main_cont .personal_chart .price_layer_box2 { z-index: 10; overflow: hidden; height: 128px; border: 1px solid #ebebeb; display: flex; justify-content: flex-start; flex: 1; } 
-    .main_cont .personal_chart .price_layer_box2 ul { float: left; width: 89px; } 
-    .main_cont .personal_chart .price_layer_box2 ul li.over { background: #fff; border-right: 1px solid #fff!important; color: #616781; } 
-    .main_cont .personal_chart .price_layer_box2 ul li { display: block; width: 88px; height: 42px; background: #f2f2f2; border-right: 1px solid #ebebeb; border-bottom: 1px solid #ebebeb; font-weight: 400; text-align: center; line-height: 42px; color: #a5a5a5; cursor: pointer; } 
-    .main_cont .personal_chart .price_layer_box2 ul li:nth-child(3) { border-bottom: 0 none!important; } 
-    .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt { width: 100%; height: 120px; padding: 4px; background: #fff; } 
-    .main_cont .personal_chart .price_layer_box2 #tabNav1Cnt { display: block; } 
-    .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table { width: 100%; margin: 0; padding: 0; font-size: 11px; } 
-    .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table thead { background: #f3f5fa; } 
-    .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table thead th { height: 26px; font-family: dotum,sans-serif; font-weight: 400; margin: 0; padding: 0; line-height: 26px; } 
-    .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table tbody::before { content: ''; display: block; height: 4px; } 
-    .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table tbody td {margin: 0; padding: 0; text-align: center; letter-spacing: 0; } 
+        .personal_new .new_box h4 {
+            padding: 0 0 0 20px
+        }
 
-    .main_cont .personal_chart .price_layer_box2 #tabNav2Cnt, .price_layer_wrap .price_layer_box2 #tabNav3Cnt { width: 150px; } 
+        .new_box h4 {
+            position: relative;
+            display: block;
+            font-weight: bold;
+            font-family: notoKr, sans-serif;
+            font-size: 18px;
+            line-height: 26px;
+            padding: 0 0 5px;
+            color: #000000;
+            letter-spacing: -1px;
+        }
+
+        .new_box h4 span {
+            font-size: 13px;
+            color: #838383;
+            padding: 0 0 0 5px;
+        }
+
+        .new_box #ul_main_video {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .login_box {
+            padding: 10px;
+            background: #F4F4F4;
+            margin-bottom: 10px;
+        }
+
+        .infozone {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 15px;    
+            align-items: center;
+        }
+
+        .infozone .advice {
+            font-weight:600;
+            letter-spacing: -1px;
+        }
+
+        .main_myinfo .login_box ul {
+            display: flex;
+            justify-content: space-between;
+        }
+        .main_myinfo .login_box ul li {
+            background:#fff;
+            border-radius: 10px;
+            padding:10px;
+        }
+        .main_myinfo .login_box ul li a {
+            text-align: center;
+        }
+        .main_myinfo .login_box ul li a span {
+            font-weight: 600;
+            letter-spacing: -1px;    
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        .main_myinfo .login_box ul li a p {
+            color:red;
+        }
+        .main_myinfo .login_box ul li a p em {
+            font-style:normal;
+        }
+
+        /**공지사항**/     
+        .main_notice .new_box {
+            padding-bottom: 10px;
+        }  
+        .main_notice .new_box .notice_list {
+            display: flex;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 0 15px 0 0;
+        }
+        .main_notice .new_box .notice_list h4 {
+            font-size: 14px;
+            min-width: 80px;
+            text-align: center;    
+            align-items: center;
+            display: flex;
+            justify-content: center;    
+            padding: 0;
+        }
+        .main_notice .new_box .notice_list .swiper-container a {
+            font-size: 14px;
+            text-align: left;
+            width:100%;
+        }
+        .main_notice .new_box .notice_list .notice-line {
+            height: 40px;
+            overflow: hidden;
+        }
+        .main_notice .new_box .notice_list .notice-line .swiper-slide {
+            height: 62px;
+            display: flex;
+            align-items: center;
+        }
+        .main_notice .new_box .notice_list .notice-line .swiper-slide a {
+            color: #000;
+            display: block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .main_notice .new_box .notice_list .notice-line .swiper-slide a:hover {
+            text-decoration: underline;
+        }
+
+        /**자주찾는게임**/
+        .main_frequent_game i.more {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: url('https://www.itembay.com/resources/image/design/main/ib2/btn_main_more.png') center no-repeat;
+            text-indent: -9999px;
+            font-size: 0;
+            vertical-align: top;
+        }
+        .main_frequent_game {}
+        .main_frequent_game .frequentzone {display: flex;justify-content: space-between;align-items: center;padding-bottom:5px;}        
+        .main_frequent_game .inbox {box-sizing: border-box;border: 1px solid #eee;}        
+        .main_frequent_game .inbox .tit {display: flex; justify-content: space-around; background-color: #eee;}
+        .main_frequent_game .inbox .tit h4 {font-size: 14px;padding: 0;}
+        .main_frequent_game .inbox .box {display: flex;justify-content: space-around; padding: 10px;}        
+        .main_frequent_game .inbox .box ul {flex: 1;overflow:hidden;}
+        .main_frequent_game .inbox .box ul:last-child {margin-left:15px;}
+        .main_frequent_game .inbox .box ul li {list-style: inside;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+        .main_frequent_game .inbox .box ul li a:hover {text-decoration: underline;}
+
+        /**앱 다운로드**/
+        .main_app_download ul {display: flex; justify-content: space-between;padding-bottom:10px; border-bottom:1px solid #ccc;}
+        .main_app_download ul li a {    
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            height: 36px;
+            padding: 0 15px;
+            border: 2px solid #000;
+            border-radius:55px;
+            font-size: 12px;
+            color: #000;
+            justify-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .main_app_download ul li a:before {
+            content: '';
+            width: 24px;
+            height: 19px;
+            margin-right: 2px;
+            background: url('https://www.itembay.com/resources/image/design/common/btn/ico_alarm.png') 0 0 no-repeat;
+        }
+
+        /* 탭 */
+        .personal_revisit .new_box h4 {
+            padding: 0 0 0 20px
+        }
+        .main_cont .rtm_trade {
+            padding: 20px 20px 0 20px;
+            width: calc(100% - 40px);
+        }
+
+        .main_cont .rtm_trade .tab {
+            padding-left: 1px
+        }
+
+        .main_cont .rtm_trade .tab:after {
+            content: "";
+            display: block;
+            clear: both
+        }
+
+        .main_cont .rtm_trade .tab > li {
+            float: left;
+            border: 1px solid #eaeef7;
+            margin-left: -1px;
+            border-bottom: 0
+        }
+
+        .main_cont .rtm_trade .tab > li a {
+            position: relative;
+            display: block;
+            font-weight: normal;
+            font-family: notoKr, sans-serif;
+            font-size: 14px;
+            line-height: 19px;
+            height: 19px;
+            padding: 10px 0;
+            color: #7e86a8;
+            background: #fff;
+            width: 198px;
+            text-align: center
+        }
+
+        .main_cont .rtm_trade .tab > li a.on {
+            color: #635bca;
+            background-color: #fbfbff;
+            padding-bottom: 11px;
+            margin-bottom: -1px
+        }
+
+        .main_cont .rtm_trade .tab > li a span {
+            display: inline-block;
+            position: relative
+        }
+
+        .main_cont .rtm_trade .tab_cont {
+            display: none;
+            overflow: hidden;
+            background-color: #fbfbff;
+            border: 1px solid #eaeef7;
+            padding: 21px 19px 19px
+        }
+
+        .main_cont .rtm_trade .tab_cont.show {
+            display: block
+        }
+
+        .main_cont .rtm_trade .tab_cont table {
+            width: 100%;
+            font-family: notoKr, sans-serif;
+            font-size: 12px;
+            line-height: 18px;
+            border: 1px solid #eaeef7
+        }
+
+        .main_cont .rtm_trade .tab_cont table th {
+            background-color: #f9f9f9;
+            color: #8e919e;
+            font-weight: normal;
+            text-align: center;
+            padding: 5px;
+            height: 25px;
+            border-left: 1px solid #fff
+        }
+
+        .main_cont .rtm_trade .tab_cont table th:first-child {
+            border: 0
+        }
+
+        .main_cont .rtm_trade .tab_cont table td {
+            border-bottom: 1px solid #eaeef7;
+            font-size: 12px;
+            line-height: 28px;
+            padding: 5px 5px;
+            height: 28px;
+            color: #616781;
+            max-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            background-color: #fff
+        }
+
+        .main_cont .rtm_trade .tab_cont table td a {
+            color: #616781
+        }
+
+        .main_cont .rtm_trade .tab_cont table td a:hover {
+            text-decoration: underline
+        }
+
+        .main_cont .rtm_trade .tab_cont table td.type_crs {
+            text-align: center
+        }
+
+        .main_cont .rtm_trade .tab_cont table td.price {
+            text-align: right;
+            color: #f2316a;
+            padding-right: 20px
+        }
+
+        /* 차트 */
+        .personal_recenttrade .new_box h4 {
+            padding: 0 0 0 20px
+        }
+        .main_cont .personal_chart {display: flex;  align-items: center;  justify-content: flex-start;padding: 20px 20px 0 20px;width: calc(100% - 40px);}
+        .main_cont .personal_chart .tit { flex-direction: column;padding: 0 20px;width: 100px;display: flex;justify-content: center;  align-items: center;}
+        .main_cont .personal_chart .tit img {display: block; max-width: 50px;}
+        .main_cont .personal_chart .tit span {display: block;}
+
+        .main_cont .personal_chart .price_layer_box2 {           
+            z-index: 10;
+            overflow: hidden;
+            height: 128px;
+            border: 1px solid #ebebeb;    
+            display: flex;
+            justify-content: flex-start;    
+            flex: 1;
+        }
+        .main_cont .personal_chart .price_layer_box2 ul {
+            float: left;
+            width: 89px;
+        }
+        .main_cont .personal_chart .price_layer_box2 ul li.over {
+            background: #fff;
+            border-right: 1px solid #fff!important;
+            color: #616781;
+        }
+        .main_cont .personal_chart .price_layer_box2 ul li {
+            display: block;
+            width: 88px;
+            height: 42px;
+            background: #f2f2f2;
+            border-right: 1px solid #ebebeb;
+            border-bottom: 1px solid #ebebeb;
+            font-weight: 400;
+            text-align: center;
+            line-height: 42px;
+            color: #a5a5a5;
+            cursor: pointer;
+        }
+        .main_cont .personal_chart .price_layer_box2 ul li:nth-child(3) {
+            border-bottom: 0 none!important;
+        }
+        .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt {
+            width: 100%;
+            height: 120px;
+            padding: 4px;
+            background: #fff;
+        }
+        .main_cont .personal_chart .price_layer_box2 #tabNav1Cnt {
+            display: block;
+        }
+        .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 11px;
+        }
+        .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table thead {
+            background: #f3f5fa;
+        }
+        .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table thead th {
+            height: 26px;
+            font-family: dotum,sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            line-height: 26px;
+        }
+        .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table tbody::before {
+            content: '';
+            display: block;
+            height: 4px;
+        }
+        .main_cont .personal_chart .price_layer_box2 .tab_nav_cnt table tbody td {
+           
+            margin: 0;
+            padding: 0;       text-align: center;
+            letter-spacing: 0;
+        }
+
+        .main_cont .personal_chart .price_layer_box2 #tabNav2Cnt, .price_layer_wrap .price_layer_box2 #tabNav3Cnt {width: 150px;}
 
     </style>
     <script type="text/javascript">
@@ -328,27 +697,19 @@
                         </div> -->
                         <div class="banner">
                             <div class="mainslider swiper-container">
-                                <ul class="swiper-wrapper">
-                                    <li class="swiper-slide">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
                                         <img src="https://ad.korea.com/itembaytest/itembaybanner/IB1/20230224_OG_3KINGDOMS_BIG.jpg"
                                             alt="">
-                                    </li>
-                                    <li class="swiper-slide">
+                                    </div>
+                                    <div class="swiper-slide">
                                         <img src="https://ad.korea.com/itembaytest/itembaybanner/IB1/20230224_OG_3KINGDOMS_BIG.jpg"
                                             alt="">
-                                    </li>
-                                    <li class="swiper-slide">
+                                    </div>
+                                    <div class="swiper-slide">
                                         <img src="https://ad.korea.com/itembaytest/itembaybanner/IB1/20230411_PC_CHARACTER_BIG.jpg"
                                             alt="">
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="indg">
-                                <div class="box">
-                                    <a href="javascript:;" class="btn_prev">이전</a>
-                                    <a href="javascript:;" class="btn_stop">멈춤</a>
-                                    <a href="javascript:;" class="btn_start">재생</a>
-                                    <a href="javascript:;" class="btn_next">다음</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
